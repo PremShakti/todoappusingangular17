@@ -1,0 +1,20 @@
+button{
+    padding: 3px;
+    border: navajowhite;
+    background-color: rgb(255, 101, 101);
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+li span button:hover{
+    background-color: red;
+}
+li{
+    border-bottom: 1px solid brown;
+ padding: 20px;
+ list-style: none;
+ display: flex;
+ gap: 15px;
+}

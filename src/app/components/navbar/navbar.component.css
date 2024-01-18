@@ -1,0 +1,39 @@
+.nav {
+  background-color: rgb(13, 142, 255);
+  color: white;
+}
+.innernav {
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  justify-content: center;
+}
+.innernav div,
+ul {
+  width: 50%;
+}
+.innernav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  font-weight: bold;
+  font-family: sans-serif;
+
+}
+.innernav div h1 {
+  margin-left: 20px;
+  cursor: pointer;
+}
+.innernav ul li a {
+  text-decoration: none;
+  color: wheat;
+}
+
+@media screen and (max-width: 768px) {
+    .innernav ul{
+      display: none;
+    }
+}

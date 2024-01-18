@@ -1,0 +1,9 @@
+@if(item){
+  <li>
+    <span><input type="checkbox" (change)="sendMessage(item._id)" [checked]="condition"/></span>
+    <p id="p" >
+     {{item.todo}}
+    </p>
+    <span><button (click)="sendTodo(item)">Edit</button></span>
+  </li>
+}

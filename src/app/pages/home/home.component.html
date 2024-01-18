@@ -1,0 +1,26 @@
+<div class="main">
+  <textarea
+    name="todoss"
+    id="todotext"
+    cols="30"
+    rows="10"
+    (keyup)="onKey($event)"
+    [(ngModel)]="textAreaContant"
+  ></textarea>
+  <div class="btns">
+    <button class="submitBtn" (click)="clickSubmitandEdit()">Submit</button>
+    <button class="submitBtn" (click)="reset()">Reset</button>
+    <button class="submitBtn" (click)="onClickDelete()">Delete</button>
+  </div>
+
+  <ul>
+    @for (item of getdata; track $index) {
+    <app-card
+      [item]="item"
+      [condition]="condition"
+      (messageEvent)="receiveMessage($event)"
+      (sentodoEvent)="resiveTodo($event)"
+    ></app-card>
+    }@empty {Loading...}
+  </ul>
+</div>
