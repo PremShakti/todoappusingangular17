@@ -1,6 +1,7 @@
 .nav {
   background-color: rgb(13, 142, 255);
   color: white;
+  
 }
 .innernav {
   padding: 3px;
@@ -10,7 +11,7 @@
   justify-content: center;
 }
 .innernav div,
-ul {
+ul,.threedot {
   width: 50%;
 }
 .innernav ul {
@@ -21,6 +22,7 @@ ul {
   gap: 50px;
   font-weight: bold;
   font-family: sans-serif;
+  
 
 }
 .innernav div h1 {
@@ -32,8 +34,56 @@ ul {
   color: wheat;
 }
 
+.paraentTogle,.threedot{
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
     .innernav ul{
       display: none;
     }
+.paraentTogle{
+  position: relative;
+  margin: auto;
+  
+  width: 70%;
+}
+    .togalbar{
+      
+      width: 100%;
+      margin: auto;
+      background-color: rgb(0, 140, 255);
+      position: absolute;
+      top: 0;
+      overflow: hidden;
+      transition: height 300ms;
+      border-radius: 0 0 10px 10px;
+    }
+    .paraentTogle,.threedot{
+      display: block;
+    }
+.togalbar ul{
+  width: 55%;
+  margin: auto;
+  
+  
+}
+.togalbar ul li{
+  list-style: none;
+  text-align: center;
+  margin-top: 10px;
+
+}
+a{
+text-decoration: none;
+color: white;
+font-weight: bold;
+}
+.threedot{
+  text-align: right;
+}
+.threedot span{
+  margin-right: 10px;
+}
+
 }

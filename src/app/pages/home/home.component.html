@@ -8,9 +8,9 @@
     [(ngModel)]="textAreaContant"
   ></textarea>
   <div class="btns">
-    <button class="submitBtn" (click)="clickSubmitandEdit()">Submit</button>
+    <button [style.background]="textAreaContant?'blue':'rgb(115, 115, 255)'" [disabled]="textAreaContant?false:true" class="submitBtn" (click)="clickSubmitandEdit()">Submit</button>
     <button class="submitBtn" (click)="reset()">Reset</button>
-    <button class="submitBtn" (click)="onClickDelete()">Delete</button>
+    <button [disabled]="disableBtn" [style.background]="!disableBtn?'blue':'rgb(115, 115, 255)'" class="submitBtn" (click)="onClickDelete()">Delete</button>
   </div>
 
   <ul>
@@ -20,6 +20,7 @@
       [condition]="condition"
       (messageEvent)="receiveMessage($event)"
       (sentodoEvent)="resiveTodo($event)"
+      
     ></app-card>
     }@empty {Loading...}
   </ul>

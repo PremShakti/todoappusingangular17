@@ -11,6 +11,18 @@
                 <li> <a [routerLink]="'/about'" >About</a> </li>
                 <li> <a [routerLink]="'/contact'">Contact</a> </li>
             </ul>
-       
+       <div class="threedot" ><span (click)="togleBtn()"><mat-icon>
+        menu
+        </mat-icon></span></div>
     </div>
 </nav>
+<div class="paraentTogle" >
+    <div class="togalbar" [style.height]="togletrue?'150px':'0px'" >
+        <ul>
+            <li> <a  [routerLink]="'home'">Home</a> </li>
+            <li> <a  [routerLink]="'/'">Todos</a> </li>
+            
+            <li> <a [routerLink]="'/about'" >About</a> </li>
+            <li> <a [routerLink]="'/contact'">Contact</a> </li>
+        </ul></div>
+</div>

@@ -1,9 +1,9 @@
 @if(item){
   <li>
-    <span><input type="checkbox" (change)="sendMessage(item._id)" [checked]="condition"/></span>
+    <span><input type="checkbox"  [(ngModel)]="isChecked" (change)="sendMessage(item._id,isChecked)" [checked]="condition"/></span>
     <p id="p" >
      {{item.todo}}
     </p>
-    <span><button (click)="sendTodo(item)">Edit</button></span>
+    <span><button (click)="sendTodo(item)"> <mat-icon>draw</mat-icon> </button></span>
   </li>
 }
