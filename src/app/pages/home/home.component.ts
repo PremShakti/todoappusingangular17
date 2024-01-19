@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { CardComponent } from '../../components/card/card.component';
 import { ApiCallService } from '../../services/api-call.service';
 
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { LoaderComponent } from '../../loader/loader.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CardComponent, FormsModule],
+  imports: [CardComponent, FormsModule,LoaderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
+  
+  
   getdata: any;
   array: any[] = [];
   uniqueArray: any[] = [];
@@ -21,6 +24,7 @@ export class HomeComponent implements OnInit {
   textAreaContant: string = '';
   disableBtn: boolean = true;
   id: any;
+  loder:boolean=false;
   
   submitBtnAndEdiBtnchanger: boolean = false;
   todoPostdata = {
@@ -34,8 +38,11 @@ export class HomeComponent implements OnInit {
     this.todoPostdata.todo = event.target.value;
   }
   ngOnInit(): void {
+   
+    this.loder=true
     this._api.getProducts().subscribe({
       next: (data) => {
+        this.loder=false
         this.getdata = data;
       },
       error: (error) => {},
@@ -43,10 +50,12 @@ export class HomeComponent implements OnInit {
   }
  
   onClickPost() {
+    this.loder=true
     this._api.postProducts(this.todoPostdata).subscribe({
       next: (d) => {
         this._api.getProducts().subscribe({
           next: (data) => {
+            this.loder=false
             this.getdata = data;
           },
           error: (error) => {},
@@ -61,10 +70,12 @@ export class HomeComponent implements OnInit {
   onClickDelete(): void {
     this.condition = false;
     this.getdata = null;
+    this.loder=true
     this._api.deleteItems(this.array).subscribe({
       next: (d) => {
         this._api.getProducts().subscribe({
           next: (data) => {
+            this.loder=false
             this.getdata = data;
           },
           error: (error) => {},
@@ -99,10 +110,12 @@ export class HomeComponent implements OnInit {
   }
 
   handleEdit() {
+    this.loder=true
     this._api.putProducts(this.todoPostdata, this.id).subscribe({
       next: (d) => {
         this._api.getProducts().subscribe({
           next: (data) => {
+            this.loder=false
             this.getdata = data;
             this.submitBtnAndEdiBtnchanger = false;
           },
@@ -118,10 +131,10 @@ export class HomeComponent implements OnInit {
   clickSubmitandEdit() {
     if (this.submitBtnAndEdiBtnchanger) {
       this.handleEdit();
-      console.log('edit chala');
+     
     } else {
       this.onClickPost();
-      console.log('post chala');
+     
     }
   }
   reset() {
